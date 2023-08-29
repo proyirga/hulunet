@@ -1,0 +1,21 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <div class="article-metadata">
+        <a class="mr-2" href="{% url 'job-new' %}">Post a Job</a>
+    </div>
+    {% for job in jobs %}
+        <article class="media content-section">
+          <a href="{% url 'profile' %}"><img class="rounded-circle article-img" src="{{ job.posted_by.profile.image.url }}" alt=""></a>
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{% url 'profile' %}">{{ job.posted_by }}</a>
+              <small class="text-muted">{{ job.date_posted | date:"F d, Y" }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ job.job_title }}</a></h2>
+            <h2><a class="article-title" href="#">{{ job.organization }}</a></h2>
+            <h2><a class="article-title" href="#">{{ job.salary }}</a></h2>
+            <p class="article-content">{{ job.job_description }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
