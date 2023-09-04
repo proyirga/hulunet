@@ -2,16 +2,24 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Profile
-from jobportal.models import Jobs
+from jobportal.models import Jobs, JobApplication
 
 
 class UserRegistrationForm(UserCreationForm):
+    Category = [
+        ('MP', 'Marketplace'),
+        ('JP', 'Job Portal'),
+        ('AU', 'Auction'),
+        ('RT', 'Rental')
+    ]   
     email = forms.EmailField(required=True)
+    category = forms.ChoiceField(choices = Category)
+
 
 
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
+        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'category']
 
 
 class UserUpdateForm(forms.ModelForm):
@@ -31,4 +39,9 @@ class ProfileUpdateForm(forms.ModelForm):
 
 class Jobs(forms.ModelForm):
     model = Jobs
-    fields = ['job_title', 'organization', 'location', 'salary', 'job_description']
+    fields = ['job_title', 'date_end', 'organization', 'location', 'salary', 'job_description']
+
+
+class JobApplicationForm(forms.Form):
+    model = JobApplication
+    fields = ['applicant', 'cover_letter', 'cv', 'date_applied']

@@ -9,7 +9,8 @@ from django.views.generic import (
     DeleteView
 )
 from django.http import HttpResponse
-from .models import Jobs
+from .models import Jobs, JobApplication
+from users.models import Profile
 from django.contrib.auth.models import User
 
 
@@ -32,6 +33,7 @@ class JobtListView(ListView):
 
 class JobDetailView(DetailView):
     model = Jobs
+    template_name = 'jobportal/job_detail.html'   
 
 
 
@@ -49,7 +51,7 @@ class JobDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 class JobCreateView(LoginRequiredMixin, CreateView):
     model = Jobs
     template_name = 'jobportal/job_form.html'
-    fields = ['job_title', 'organization', 'location', 'salary', 'job_description']
+    fields = ['date_end', 'job_title', 'organization', 'location', 'salary', 'job_description']
 
     def form_valid(self, form):
         form.instance.posted_by = self.request.user
@@ -59,6 +61,7 @@ class JobCreateView(LoginRequiredMixin, CreateView):
 
 class JobUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Jobs
+    template_name = 'jobportal/job_form.html'
     fields = ['job_title', 'job_description']
 
     def form_valid(self, form):
@@ -66,7 +69,17 @@ class JobUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         return super().form_valid(form)
 
     def test_func(self):
-        post = self.get_object()
-        if self.request.user == post.posted_by:
+        job = self.get_object()
+        if self.request.user == job.posted_by:
             return True 
         return False
+
+
+class JobApplicationView(LoginRequiredMixin, CreateView):
+    model = JobApplication
+    template_name = 'jobportal/job_application_form.html'
+    fields = ['cover_letter', 'cv', 'date_applied']
+
+    def form_valid(self, form):
+        form.instance.applicant = self.request.user
+        return super().form_valid(form)

@@ -15,7 +15,13 @@
             {% endif %}
         </div>
         <h2 class="article-title">{{ object.title }}</h2>
+        <div><img src="{{object.image}}" alt=""></div>
         <p class="article-content">{{ object.content }}</p>
+        </div>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                <a class="ml-2" href="{% url 'blg-home' %}">List Posts</a>
+            </small>
         </div>
     </article>
 {% endblock content %}

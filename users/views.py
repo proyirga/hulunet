@@ -8,8 +8,8 @@ def register(request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            first_name = form.cleaned_data.get('first_name')
-            messages.success(request, f'You are signed up successfully, Welcome {first_name}')
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'You are signed up successfully, Welcome {username}')
             return redirect('blg-home')
     else:
         form = UserRegistrationForm()
