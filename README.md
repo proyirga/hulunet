@@ -7,8 +7,18 @@ Hulunet is a web app for everybody to share constructive ideas and opportunities
 
 # Sign Up [[here]](hulunet.com/signup) for more engagements such as making posts, posting jobs and advertizing products.
 
+# Functionalities:
+    1. Registration /Sign Up
+    2. Profile Update
+    3. Create Posts
+    4. Post Jobs
+    5. Post products / services for sale
+    6. Apply for a job
+    7. Buy products / services
+    8. Update / Delete own posts, job posts, products, etc.
 
-This portfolio was done as part of the [alxafrica](alxafrica.com) 12 month full-stack software engineering course - Foundations.
+
+This portfolio was done as part of the [alxafrica's](alxafrica.com) 12 month full-stack software engineering course - Foundations.
     By Yirga Mulaw Beyene
 
 
