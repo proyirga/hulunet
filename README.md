@@ -8,10 +8,9 @@ Hulunet is a web app for everybody to share constructive ideas and opportunities
 # Sign Up [[here]](hulunet.com/signup) for more engagements such as making posts, posting jobs and advertizing products.
 
 
-
-This portfolio is done as part of the [alxafrica](alxafrica.com) full stack software engineering course - Foundations.
-# By Yirga Mulaw Beyene
+This portfolio was done as part of the [alxafrica](alxafrica.com) 12 month full-stack software engineering course - Foundations.
+    By Yirga Mulaw Beyene
 
 
 # Technologies:
-Python, Django, Bootstrap, HTML, CSS
+    Python, Django, Bootstrap, HTML, CSS
