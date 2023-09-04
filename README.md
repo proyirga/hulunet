@@ -9,7 +9,7 @@ Hulunet is a web app for everybody to share constructive ideas and opportunities
 
 
 
-This portfolio is done as part of the # alxafrica full stack software engineering course - Foundations.
+This portfolio is done as part of the [alxafrica](alxafrica.com) full stack software engineering course - Foundations.
 # By Yirga Mulaw Beyene
 
 
