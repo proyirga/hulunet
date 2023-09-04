@@ -4,5 +4,5 @@ Hulunet is a web app for everybody to share constructive ideas and opportunities
 
 Hulunet: the name coined from an amharic word Hulu meaning everyone and everything and an english word net which means networking. It is a network of everybody and everything.
 
-# Sign Up [here](hulunet.com/signup for more engagements such as making posts, posting jobs and advertizing products.
+# Sign Up [[here]](hulunet.com/signup) for more engagements such as making posts, posting jobs and advertizing products.
 
