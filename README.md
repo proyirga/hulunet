@@ -18,7 +18,7 @@ Hulunet is a web app for everybody to share constructive ideas and opportunities
     8. Update / Delete own posts, job posts, products, etc.
 
 
-This portfolio was done as part of the [alxafrica's](alxafrica.com) 12 month full-stack software engineering course - Foundations.
+This portfolio was done as part of the [alxafrica's](https://alxafrica.com) 12 month full-stack software engineering course - Foundations.
     By Yirga Mulaw Beyene
 
 
