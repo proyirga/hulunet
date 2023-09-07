@@ -1,7 +1,7 @@
 {% extends "blog/base.html" %}
 {% block content %}
     <article class="media content-section">
-        <a href="{% url 'profile' %}"><img class="rounded-circle article-img" src="{{ job.posted_by.profile.image.url }}" alt=""></a>
+        <a href="{% url 'profile' %}"><img class="rounded-circle article-img" src="{{ object.posted_by.profile.image.url }}" alt=""></a>
         <div class="media-body">
             <div class="article-metadata">
                 <a class="mr-2" href="{% url 'job-apply' object.id %}">Apply Here</a>

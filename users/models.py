@@ -20,3 +20,8 @@ class Profile(models.Model):
             img.thumbnail(output_size)
             img.save(self.image.path)
 
+class Broker(models.Model):
+    username = models.ForeignKey(User, on_delete=models.CASCADE)
+    license_id = models.CharField(max_length=25)
+    license = models.ImageField(upload_to='licenses')
+    office_address = models.CharField(max_length=200)

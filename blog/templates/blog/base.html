@@ -16,7 +16,7 @@
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
-          <a class="navbar-brand mr-4" href="{% url 'blg-home' %}">Hulunet</a>
+          <a class="navbar-brand mr-4" href="{% url 'hulunet' %}">Hulunet</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
@@ -31,7 +31,7 @@
               <a class="nav-item nav-link" href="{% url 'jobs' %}">Jobs</a>  
               <a class="nav-item nav-link" href="#">Marketplace</a>
               <a class="nav-item nav-link" href="{% url 'blg-home' %}">Blog Posts</a>
-                <a class="nav-item nav-link" href="#">Entertainment</a>
+                <a class="nav-item nav-link" href="{% url 'rents' %}">Rents</a>
                 <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
                 <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
               {% else %}
@@ -51,18 +51,30 @@
               <div class="alert alert-{{message.tags}}">{{ message}}</div>
             {% endfor %}
           {% endif %}
-          {% block content %}{% endblock %}
+          {% block content %}
+          <footer class="mainfooter fixed-bottom" role="contentinfo">
+            <div class="footer-middle">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12 copy">
+                    <p class="text-center">&copy; Copyright 2023 - Hulunet.  All rights reserved.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
+          {% endblock %}
         </div>
         <div class="col-md-4">
           {% if user.is_authenticated %}
             <div class="content-section">
-              <h3>Hot Menues </h3>
+              <h3>Trending </h3>
               <p class='text-muted'>Where do you want to go?
                 <ul class="list-group">
-                  <li class="list-group-item list-group-item-light"> <a href="{% url 'blg-home' %}">Latest Posts</a></li>
+                  <li class="list-group-item list-group-item-light"> <a href="{% url 'blg-home' %}">Posts</a></li>
                   <li class="list-group-item list-group-item-light"><a href="#">Marketplace</a></li>
                   <li class="list-group-item list-group-item-light"><a href="{% url 'jobs' %}">Jobs</a></li>
-                  <li class="list-group-item list-group-item-light"><a href="#">Entertainment</a></li>
+                  <li class="list-group-item list-group-item-light"><a href="{% url 'rents' %}">Rents</a></li>
                 </ul>
               </p>
             </div>
@@ -76,5 +88,5 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
+  </body>
 </html>

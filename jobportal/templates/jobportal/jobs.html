@@ -13,8 +13,7 @@
               <small class="text-muted"> up to {{ job.date_end | date:"F d, Y" }}</small>
             </div>
             <h2><a class="article-title" href="{% url 'job-detail' job.id %}">{{ job.job_title }} Job By {{ job.organization }}</a></h2>
-            <h2><a class="article-title" href="#"> Salary: {{ job.salary }}</a></h2>
-            <p class="article-content"> Job Description: {{ job.job_description }}</p>
+            <h2><a class="article-title" href="#"> Salary: {{ job.salary }}</a></h2>  
           </div>
         </article>
     {% endfor %}

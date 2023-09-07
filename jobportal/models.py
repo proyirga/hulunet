@@ -1,8 +1,13 @@
 from django.db import models
 from django.utils import timezone
+from datetime import timedelta
 from django.urls import reverse
 from django.contrib.auth.models import User
 from users.models import Profile
+
+
+def in_five_days():
+    return timezone.now() + timedelta(days=5)
 
 class Jobs(models.Model):
     job_title = models.CharField(max_length=100)
@@ -11,7 +16,7 @@ class Jobs(models.Model):
     salary = models.CharField(max_length=100)
     job_description = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
-    date_end = models.DateTimeField(default=timezone.now)
+    date_end = models.DateTimeField(default=in_five_days)
     posted_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def get_absolute_url(self):

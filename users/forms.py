@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Profile
 from jobportal.models import Jobs, JobApplication
+from rents.models import Item4Rent
 
 
 class UserRegistrationForm(UserCreationForm):
@@ -19,7 +20,7 @@ class UserRegistrationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'category']
+        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']
 
 
 class UserUpdateForm(forms.ModelForm):
@@ -45,3 +46,8 @@ class Jobs(forms.ModelForm):
 class JobApplicationForm(forms.Form):
     model = JobApplication
     fields = ['applicant', 'cover_letter', 'cv', 'date_applied']
+
+
+class Rents(forms.ModelForm):
+    model = Item4Rent
+    fields = ['item_name', 'image', 'description', 'location']
