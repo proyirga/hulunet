@@ -1,3 +1,4 @@
+#!/home/proyirga/hulunet/venv/bin/python
 """
 WSGI config for tegarunet project.
 
