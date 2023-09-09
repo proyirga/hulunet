@@ -7,6 +7,10 @@
             <div class="media-body">
                 <h2 class="account-heading"> {{user.username}} </h2>
                 <p class="text-secondary"> {{user.email}} </p>
+                <p class="text-secondary"> 
+                    {% for bio in profile.bios.all %}
+                        {{ bio }}
+                    {% endfor %} </p>
 
             </div>
         </div>

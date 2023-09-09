@@ -2,9 +2,18 @@ from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
 
+class Bio(models.Model):
+    text = models.TextField()
+    title = models.CharField(max_length=50)
+    date = models.DateTimeField()
+
+    def __str__(self):
+        return self.title
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_imgs')
+    bios = models.ManyToManyField(Bio, related_name='profiles')
 
 
     def __str__(self):
@@ -19,6 +28,9 @@ class Profile(models.Model):
             output_size = (300, 300)
             img.thumbnail(output_size)
             img.save(self.image.path)
+
+
+
 
 class Broker(models.Model):
     username = models.ForeignKey(User, on_delete=models.CASCADE)

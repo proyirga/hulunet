@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from .models import Profile
 from jobportal.models import Jobs, JobApplication
 from rents.models import Item4Rent
+from blog.models import Comment
 
 
 class UserRegistrationForm(UserCreationForm):
@@ -48,6 +49,11 @@ class JobApplicationForm(forms.Form):
     fields = ['applicant', 'cover_letter', 'cv', 'date_applied']
 
 
-class Rents(forms.ModelForm):
+class RentsForm(forms.ModelForm):
     model = Item4Rent
     fields = ['item_name', 'image', 'description', 'location']
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['comment']
