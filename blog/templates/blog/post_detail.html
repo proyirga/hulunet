@@ -1,4 +1,5 @@
 {% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
     <article class="media content-section">
         <a href="{% url 'profile' %}"><img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}" alt=""></a>
@@ -18,10 +19,21 @@
         <div><img src="{{object.image}}" alt=""></div>
         <p class="article-content">{{ object.content }}</p>
         </div>
-        <div class="border-top pt-3">
-            <small class="text-muted">
-                <a class="ml-2" href="{% url 'blg-home' %}">List Posts</a>
-            </small>
-        </div>
     </article>
+    <hr>
+    <div class="ml-2 content-section">
+      <h3>Comments</h3>
+        {% for comment in post.comments.all %}
+            <div class="comment">
+                <p>{{ comment.comment }}</p>
+                <p> <small class="text-muted">Commented by {{ comment.commenter }} on {{ comment.date_commented }}</p></small>
+            </div>
+        {% endfor %}
+      <hr>
+        <form method="POST" action="{% url 'comment-create' post.pk %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-primary">Add a Comment</button>
+        </form>
+    </div>
 {% endblock content %}

@@ -25,3 +25,14 @@ class Post(models.Model):
             output_size = (300, 300)
             img.thumbnail(output_size)
             img.save(self.image.path)
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    commenter = models.ForeignKey(User, on_delete=models.CASCADE)
+    comment = models.TextField()
+    date_commented = models.DateTimeField(auto_now_add=True)
+    date_comment_updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.body

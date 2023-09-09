@@ -6,6 +6,7 @@ from .views import (
     PostUpdateView,
     PostDeleteView,
     UserPostListView,
+    CommentCreateView
 )
 from . import views
 from users import views as user_profile_view
@@ -19,5 +20,6 @@ urlpatterns = [
     path('post/<int:pk>/update/', PostUpdateView.as_view(), name='post-update'),
     path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
     path('post/new/', PostCreateView.as_view(), name='post-create'),
+    path('comment/new/<int:pk>', CommentCreateView.as_view(), name='comment-create'),
     path('about/', views.about, name='blg-about')
 ]
